@@ -8,9 +8,10 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: transparent;
+            /* background: transparent;  Removed this line */
+            background-color: rgba(0, 0, 0, 0); /* Replaced with RGBA transparent */
             color: black;
-            user-select: none; /* Prevent text selection during clicks */
+            user-select: none;
         }
         .overlay {
             position: absolute;
@@ -22,15 +23,15 @@
             margin: 5px 0;
             font-size: 24px;
             font-weight: bold;
-            display: flex; /* Use flexbox to align text and number */
-            align-items: center; /* Vertically align items in the row */
+            display: flex;
+            align-items: center;
         }
         .label {
-            cursor: pointer; /* Indicate clickable text */
-            margin-right: 5px; /* Add some space between text and number */
+            cursor: pointer;
+            margin-right: 5px;
         }
         .number {
-            cursor: pointer; /* Indicate clickable number */
+            cursor: pointer;
         }
     </style>
 </head>
