@@ -8,8 +8,8 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: none !important; /* Try background: none !important */
-            color: black;
+            background-color: black !important; /* Changed to black background */
+            color: white !important; /* Changed to white text */
             user-select: none;
             overflow: hidden;
         }
@@ -18,7 +18,7 @@
             top: 10px;
             left: 10px;
             text-align: left;
-            background: none !important; /* Also on .overlay */
+            /* background: none !important;  No background needed for overlay div now */
         }
         .row {
             margin: 5px 0;
@@ -30,9 +30,11 @@
         .label {
             cursor: pointer;
             margin-right: 5px;
+            color: white; /* Ensure labels are also white */
         }
         .number {
             cursor: pointer;
+            color: white; /* Ensure numbers are also white */
         }
     </style>
 </head>
@@ -49,7 +51,33 @@
     </div>
 
     <script>
-        // ... (JavaScript code remains the same) ...
+        const blankCountSpan = document.getElementById('blankCount');
+        const liveCountSpan = document.getElementById('liveCount');
+        const blankLabelSpan = document.getElementById('blankLabel');
+        const liveLabelSpan = document.getElementById('liveLabel');
+
+        let blankValue = 0;
+        let liveValue = 0;
+
+        blankCountSpan.addEventListener('click', () => {
+            blankValue++;
+            blankCountSpan.textContent = blankValue;
+        });
+
+        liveCountSpan.addEventListener('click', () => {
+            liveValue++;
+            liveCountSpan.textContent = liveValue;
+        });
+
+        blankLabelSpan.addEventListener('click', () => {
+            blankValue--;
+            blankCountSpan.textContent = blankValue;
+        });
+
+        liveLabelSpan.addEventListener('click', () => {
+            liveValue--;
+            liveCountSpan.textContent = liveValue;
+        });
     </script>
 </body>
 </html>
