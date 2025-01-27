@@ -10,24 +10,70 @@
             font-family: Arial, sans-serif;
             background: transparent;
             color: black;
+            user-select: none; /* Prevent text selection during clicks */
         }
         .overlay {
             position: absolute;
             top: 10px;
-            left: 10px; /* Changed from right to left */
-            text-align: left; /* Changed from right to left for text alignment */
+            left: 10px;
+            text-align: left;
         }
         .row {
             margin: 5px 0;
             font-size: 24px;
             font-weight: bold;
+            display: flex; /* Use flexbox to align text and number */
+            align-items: center; /* Vertically align items in the row */
+        }
+        .label {
+            cursor: pointer; /* Indicate clickable text */
+            margin-right: 5px; /* Add some space between text and number */
+        }
+        .number {
+            cursor: pointer; /* Indicate clickable number */
         }
     </style>
 </head>
 <body>
     <div class="overlay">
-        <div class="row">BLANK: --</div>
-        <div class="row">LIVE: --</div>
+        <div class="row">
+            <span class="label" id="blankLabel">BLANK:</span>
+            <span class="number" id="blankCount">0</span>
+        </div>
+        <div class="row">
+            <span class="label" id="liveLabel">LIVE:</span>
+            <span class="number" id="liveCount">0</span>
+        </div>
     </div>
+
+    <script>
+        const blankCountSpan = document.getElementById('blankCount');
+        const liveCountSpan = document.getElementById('liveCount');
+        const blankLabelSpan = document.getElementById('blankLabel');
+        const liveLabelSpan = document.getElementById('liveLabel');
+
+        let blankValue = 0;
+        let liveValue = 0;
+
+        blankCountSpan.addEventListener('click', () => {
+            blankValue++;
+            blankCountSpan.textContent = blankValue;
+        });
+
+        liveCountSpan.addEventListener('click', () => {
+            liveValue++;
+            liveCountSpan.textContent = liveValue;
+        });
+
+        blankLabelSpan.addEventListener('click', () => {
+            blankValue--;
+            blankCountSpan.textContent = blankValue;
+        });
+
+        liveLabelSpan.addEventListener('click', () => {
+            liveValue--;
+            liveCountSpan.textContent = liveValue;
+        });
+    </script>
 </body>
 </html>
